@@ -1,0 +1,13 @@
+spring:
+  main:
+    # Desactiva el servidor web embebido (Tomcat) para que sea app de consola
+    web-application-type: none
+
+  autoconfigure:
+    # Evita que Spring Boot exija un DataSource y trate de conectar a Postgres
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+logging:
+  level:
+    root: INFO
