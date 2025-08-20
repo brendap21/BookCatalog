@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  POM para LiterAlura / BookCatalog
+  - Spring Boot 3.2.3 (requisito del curso)
+  - Java 17 (mínimo compatible con Boot 3.2.x)
+  - Empaquetado JAR
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent de Spring Boot: controla versiones de starters, plugins, etc. -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.2.3</version> <!-- 👈 versión objetivo -->
+		<relativePath/>
+	</parent>
+
+	<!-- Coordenadas del proyecto -->
+	<groupId>com.brendanavarro</groupId>
+	<artifactId>bookcatalog</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>bookcatalog</name>
+	<description>Catálogo de libros - LiterAlura</description>
+	<packaging>jar</packaging>
+
+	<properties>
+		<!-- Importante: Boot 3.2.x requiere mínimo Java 17 -->
+		<java.version>17</java.version>
+	</properties>
+
+	<dependencies>
+		<!-- JPA / Hibernate -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- Web (REST) - útil para exponer endpoints y probar el arranque -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- DevTools para hot reload en desarrollo -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Driver JDBC de PostgreSQL (solo en tiempo de ejecución) -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Dependencias de prueba (JUnit, AssertJ, etc.) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- El parent define la versión del plugin de Boot -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
